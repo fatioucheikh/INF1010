@@ -17,9 +17,9 @@ class Groupe{
     ~Groupe();
     
     //methode d'acces
-    string getNom() ;
-    unsigned int getNombreDepenses();
-    double getTotal();
+    string getNom()const ;
+    unsigned int getNombreDepenses()const;
+    double getTotal()const;
     
     //Methodes de modification
     void setNom(string& nom);
@@ -37,16 +37,26 @@ class Groupe{
     
     private :
         string nom_;
+
         double totalDepenses_;
+		double* comptes_;
+		
+
         Utilisateur** listeUtilisateurs_;
-        unsigned int nombreDepenses_;
+		unsigned int tailleTabUtilisateurs_;        
         unsigned int nombreUtilisateurs_;
-        unsigned int tailleTabUtilisateurs_;
-        unsigned int tailleTabDepenses_;
+        
+        
         Depense** listeDepenses_;
-        double* comptes_;
+		unsigned int tailleTabDepenses_;
+		unsigned int nombreDepenses_;
+
+        
+
         Transfert** listeTransferts_;
         unsigned int nombreTrensferts_; 
+
+		bool estUnUtilisateurDuGroupe(Utilisateur* utilisateur)const;
     
 };
 
