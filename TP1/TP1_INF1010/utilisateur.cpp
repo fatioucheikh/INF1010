@@ -41,6 +41,18 @@ unsigned int Utilisateur::getNombreDepense() const
 	return nombreDepenses_;
 }
 
+unsigned int Utilisateur::getTailleTabDepense()const{
+	return tailleTabDepense_;
+}
+
+double Utilisateur::getTotal()const{
+	return totalDepense_;
+}
+
+Depense** Utilisateur::getListeDepense()const {
+	return listeDepenses_;
+}
+
 // methode de modification 
 void Utilisateur::setNom(string& nom)
 {

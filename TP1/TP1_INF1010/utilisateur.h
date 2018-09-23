@@ -10,21 +10,37 @@
 using namespace std;
 
 class Utilisateur {
-    public :
-    // constructeurs
-    Utilisateur();
-    Utilisateur( string& nom);
-    
-    //Destructeur
-    ~Utilisateur(); 
-    
-    //Methodes d'accès
-    string getNom() const;
-    unsigned int getNombreDepense() const ;
-    double getTotal() ;
-  
-    //Methode de modification
-    void setNom(string& nom);
+public:
+	// constructeurs
+	Utilisateur();
+	Utilisateur(string& nom);
+
+	//Destructeur
+	~Utilisateur();
+
+	//Methodes d'accès
+	string getNom() const;
+	unsigned int getNombreDepense() const;
+	double getTotal()const;
+	Depense** getListeDepense()const;
+	unsigned int getTailleTabDepense()const;
+
+	//Methode de modification
+	void setNom(string& nom);
+	void setListeDepense(Depense** depense) {
+		listeDepenses_ = depense;
+	}
+	void setTailleTabDepense(unsigned int taille) {
+		tailleTabDepense_ = taille;
+	}
+
+	void setNombreDepense(unsigned int nbDepense) {
+		nombreDepenses_ = nbDepense;
+	}
+
+	void setTotalDepense(double total) {
+		totalDepense_ = total;
+	}
     
     // Methode ajout de dépense
     void ajouterDepense(Depense* uneDepense);
