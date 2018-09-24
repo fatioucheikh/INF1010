@@ -41,6 +41,8 @@ public:
 	void setTotalDepense(double total) {
 		totalDepense_ = total;
 	}
+
+	
     
     // Methode ajout de dépense
     void ajouterDepense(Depense* uneDepense);

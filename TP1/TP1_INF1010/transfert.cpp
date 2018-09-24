@@ -13,18 +13,15 @@ Transfert::Transfert(double montant, Utilisateur* de, Utilisateur* pour): donneu
 	receveur_ = pour;
 }
 
+Transfert::~Transfert() {
+}
+
 Utilisateur* Transfert::getDonneur()const{
-	if (donneur_ != nullptr) {
 		return donneur_;
-	}
-	return nullptr;
 }
 
 Utilisateur* Transfert::getReceveur()const{
-	if (receveur_ != nullptr) {
 		return receveur_;
-	}
-	return nullptr;
 }
 
 double Transfert::getMontant()const {
@@ -33,9 +30,7 @@ double Transfert::getMontant()const {
 
 
 void Transfert::setDonneur(Utilisateur* donneur) {
-	if (donneur_ != nullptr) {
-		*donneur_ = *donneur;
-	}
+		donneur_ = donneur;
 }
 
 
@@ -44,9 +39,8 @@ void Transfert::setMontant(double montant) {
 	montant_ = montant;
 }
 void Transfert::setReceveur(Utilisateur* receveur) {
-	if (receveur_ != nullptr) {
-		*receveur_ = *receveur;
-	}
+	
+	receveur_ = receveur;
 }
 
 
@@ -65,3 +59,4 @@ void Transfert::afficherTransfert()const{
 	}
 
 }
+
