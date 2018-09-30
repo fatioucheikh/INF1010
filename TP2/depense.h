@@ -17,7 +17,7 @@ public:
 	// Constructeurs
 	// TODO: Ajouter le attribut objet dans les constructeurs
 	Depense();
-	Depense(const string& nom, double montant, string* lieu );
+	Depense(const string& nom, double montant, string* lieu);
 	~Depense();
 
 	// TODO: Ajouter un constructeur par copie
@@ -31,7 +31,7 @@ public:
 	void setMontant(double montant);
 
 	// TODO: Ajouter une surcharge de l'operateur =
-	Depense&  operator=( const Depense& depense);
+	Depense&  operator=(const Depense& depense);
 	friend ostream&  operator<<(ostream &os, const Depense& depense);
 	// TODO: Remplacer par une surcharge de l'operateur <<
 	//void afficherDepense() const;

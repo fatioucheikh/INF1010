@@ -16,7 +16,7 @@ class Groupe {
 public:
 	// Constructeurs
 	Groupe();
-	Groupe(const string& nom, unsigned int tailleTabDepenses, unsigned int tailleTabUtilisateurs);
+	Groupe(const string& nom);
 
 	// Destructeur
 	~Groupe();
@@ -42,17 +42,17 @@ public:
 	void afficherGroupe() const;
 
 private:
+
+	bool exiteUtilisateur(Utilisateur* u);
 	string nom_;
 	// Remplacer les doubles pointeurs par des vecteurs
-	Utilisateur** utilisateurs_;
-	unsigned int nombreUtilisateurs_;
-	unsigned int tailleTabUtilisateurs_;
-	Depense** depenses_;
-	unsigned int nombreDepenses_;
-	unsigned int tailleTabDepenses_;
-	Transfert** transferts_;
+	vector <Utilisateur*> utilisateurs_;
+	
+	vector <Depense*> depenses_;
+
+	vector <Transfert*> transferts_;
 	unsigned int nombreTransferts_;
-	double* comptes_;
+	vector <double> comptes_;
 
 };
 

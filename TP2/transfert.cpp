@@ -10,7 +10,7 @@
 Transfert::Transfert() : montant_(0), expediteur_(nullptr), receveur_(nullptr) {
 }
 
-Transfert::Transfert(double montant, Utilisateur* expediteur, Utilisateur* receveur) : 
+Transfert::Transfert(double montant, Utilisateur* expediteur, Utilisateur* receveur) :
 	montant_(montant), expediteur_(expediteur), receveur_(receveur) {
 }
 
@@ -30,34 +30,31 @@ Utilisateur* Transfert::getReceveur() const {
 // Methodes de modifications
 void Transfert::setMontant(double montant) {
 
-	montant_= montant;
+	montant_ = montant;
 }
 
 void Transfert::setExpediteur(Utilisateur* donneur) {
 
 
-	for (unsigned int i = 0; i < expediteur_->getDepense().size(); i++) {
-		if (expediteur_->getDepense()[i] != nullptr)
-			delete expediteur_->getDepense()[i];
-	}
+	receveur_ = donneur;
 
-
-	expediteur_ =new Utilisateur(*donneur);
 }
 
 void Transfert::setReceveur(Utilisateur* receveur) {
 
-	for (unsigned int i = 0; i < receveur_->getDepense().size(); i++) {
-		if (receveur_->getDepense()[i] != nullptr)
-			delete receveur_->getDepense()[i];
-	}
-
-
-	receveur_ = new Utilisateur(*receveur);
+	expediteur_ = receveur;
 }
+
+
+
 
 //Methode affichage
 void Transfert::afficherTransfert() const {
-	cout<< "Transfert fait par " << expediteur_->getNom() << " vers " << receveur_->getNom() 
+	cout << "Transfert fait par " << expediteur_->getNom() << " vers " << receveur_->getNom()
 		<< " d'un montant de " << montant_ << endl;
+}
+
+Transfert::~Transfert() {
+	expediteur_ = nullptr;
+	receveur_ = nullptr;
 }

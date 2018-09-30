@@ -16,6 +16,7 @@ public:
 	// Constructeurs
 	Transfert();
 	Transfert(double montant, Utilisateur* expediteur, Utilisateur* receveur_);
+	~Transfert();
 
 	// Méthodes d'accès
 	Utilisateur* getExpediteur() const;
@@ -30,6 +31,8 @@ public:
 
 	// TODO: Remplacer par une surcharge de l'operateur <<
 	void afficherTransfert() const;
+
+	//void tranferer(double montant);
 
 private:
 	double montant_;

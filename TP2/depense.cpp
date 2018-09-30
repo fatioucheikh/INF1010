@@ -8,8 +8,8 @@
 
 // Constucteurs
 Depense::Depense() : nom_("inconnu"), montant_(0.0) {
-	lieu_= new string("inconnu");
- 
+	lieu_ = new string("inconnu");
+
 }
 
 Depense::Depense(const string& nom, double montant, string* lieu) : nom_(nom), montant_(montant) {
@@ -42,11 +42,11 @@ void Depense::setMontant(double montant) {
 	montant_ = montant;
 }
 
-Depense& Depense::operator=( const Depense& depense) {
+Depense& Depense::operator=(const Depense& depense) {
 	nom_ = depense.getNom();
 	montant_ = depense.getMontant();
 
-	if ( lieu_ != nullptr )
+	if (lieu_ != nullptr)
 		delete lieu_;
 	lieu_ = new string(*(depense.getLieu()));
 	return *this;
