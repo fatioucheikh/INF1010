@@ -64,7 +64,7 @@ void Groupe::setNom(const string& nom) {
 	nom_ = nom;
 }
 
-bool Groupe::exiteUtilisateur(Utilisateur* u) {
+bool Groupe::exiteUtilisateur(const Utilisateur* u) const {
 	
 
 	for (unsigned int i = 0; i < utilisateurs_.size(); i++) {
@@ -91,6 +91,17 @@ void Groupe::ajouterDepense(Depense* depense, Utilisateur* utilisateur) {
 }
 
 
+Utilisateur&  Groupe::operator+=(const Utilisateur* utilisateur) {
+
+}
+
+
+
+
+
+
+
+
 
 //void Groupe::calculerComptes()
 //{
@@ -100,50 +111,50 @@ void Groupe::ajouterDepense(Depense* depense, Utilisateur* utilisateur) {
 //	}
 //}
 
-//void Groupe::equilibrerComptes() {
-//	calculerComptes();
-//	bool calcul = true;
-//	int count = 0;
-//	while (calcul) {
-//		double max = 0;
-//		double min = 0;
-//		int indexMax = 0;
-//		int indexMin = 0;
-//
-//		// On cherche le compte le plus eleve et le moins eleve
-//		for (int i = 0; i < nombreUtilisateurs_; i++) {
-//			if (comptes_[i] > max) {
-//				max = comptes_[i];
-//				indexMax = i;
-//			}
-//			if (comptes_[i] < min) {
-//				min = comptes_[i];
-//				indexMin = i;
-//			}
-//		}
-//
-//		// On cherche lequel des deux a la dette la plus grande
-//		if (-min <= max) {
-//			transferts_[nombreTransferts_++] = new Transfert(-min, utilisateurs_[indexMin], utilisateurs_[indexMax]);
-//			comptes_[indexMax] += min;
-//			comptes_[indexMin] = 0;
-//		}
-//		else {
-//			transferts_[nombreTransferts_++] = new Transfert(max, utilisateurs_[indexMin], utilisateurs_[indexMax]);
-//			comptes_[indexMax] = 0;
-//			comptes_[indexMin] += max;
-//		}
-//
-//		// On incremente le nombre de comptes mis a 0
-//		count++;
-//		if (-min == max) {
-//			count++;
-//		}
-//		if (count >= nombreUtilisateurs_ - 1) {
-//			calcul = false;
-//		}
-//	}
-//}
+void Groupe::equilibrerComptes() {
+	calculerComptes();
+	bool calcul = true;
+	int count = 0;
+	while (calcul) {
+		double max = 0;
+		double min = 0;
+		int indexMax = 0;
+		int indexMin = 0;
+
+		// On cherche le compte le plus eleve et le moins eleve
+		for (int i = 0; i < utilisateurs_.size(); i++) {
+			if (comptes_[i] > max) {
+				max = comptes_[i];
+				indexMax = i;
+			}
+			if (comptes_[i] < min) {
+				min = comptes_[i];
+				indexMin = i;
+			}
+		}
+
+		// On cherche lequel des deux a la dette la plus grande
+		if (-min <= max) {
+			transferts_[nombreTransferts_++] = new Transfert(-min, utilisateurs_[indexMin], utilisateurs_[indexMax]);
+			comptes_[indexMax] += min;
+			comptes_[indexMin] = 0;
+		}
+		else {
+			transferts_[nombreTransferts_++] = new Transfert(max, utilisateurs_[indexMin], utilisateurs_[indexMax]);
+			comptes_[indexMax] = 0;
+			comptes_[indexMin] += max;
+		}
+
+		// On incremente le nombre de comptes mis a 0
+		count++;
+		if (-min == max) {
+			count++;
+		}
+		if (count >= utilisateurs_.size() - 1) {
+			calcul = false;
+		}
+	}
+}
 
 
 //// Methode d'affichage

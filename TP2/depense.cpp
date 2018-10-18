@@ -12,7 +12,7 @@ Depense::Depense() : nom_("inconnu"), montant_(0.0) {
 
 }
 
-Depense::Depense(const string& nom, double montant, string* lieu) : nom_(nom), montant_(montant) {
+Depense::Depense( string nom, double montant, string* lieu) : nom_(nom), montant_(montant) {
 	lieu_ = new string(*lieu);
 }
 

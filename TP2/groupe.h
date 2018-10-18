@@ -32,6 +32,10 @@ public:
 	// Methodes d'ajout
 	// TODO: Modifier pour utiliser la surcharge d'operateur
 	void ajouterDepense(Depense* depense, Utilisateur* utilisateur);
+	
+	// TODO: Ajouter une surcharge de l'operateur =
+	Utilisateur&  operator+=(const Depense& Utilisateur);
+	
 	void ajouterUtilisateur(Utilisateur* utilisateur);
 
 	// Methodes de calcul

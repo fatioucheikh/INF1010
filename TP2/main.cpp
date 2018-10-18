@@ -8,98 +8,16 @@
 #include "depense.h"
 #include "utilisateur.h"
 #include  "transfert.h"
-/*#include "groupe.h"*/
+#include "groupe.h"*/
 // le += remplace ajouté depense 
 using namespace std;
 
 int main() {
 
 
-	/*string nom1 = " je suis fort ";
-		double montant = 2.858;
 
-		string* lieu = new string("tres bon");
-
-		Depense carote(nom1, montant, lieu);
-
-	Depense banane;
-
-	cout << banane;
-	cout << carote;
-
-	cout << endl;
-
-	banane = carote;
-
-	cout << banane;
-	cout << carote;*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	string nom1 = "nom1";
-	string* lieu = new string("nom2");
-
-	string nomU1 = "U1";
-	string nomU2 = "U2";
-
-	Depense p2(nom1, 15.0, lieu);
-	Depense p1(nom1, 19.0, lieu);
-
-	//p1 = p2;
-	cout << p1;
-
-
-
-	Utilisateur U1(nomU1);
-
-	Utilisateur U2(nomU2);
-
-	U1+=&p1;
-	U2+=&p2;
-	U2 += &p2;
-	U1 = U2;
-
-	cout << U1;
 
 	
-	Transfert T1(155.0, &U1, &U2);
-	/*
-	T1.setExpediteur(&U1);
-
-	T1.setExpediteur(&U2);
-
-	T1.afficherTransfert();*/
-
-
-
-
-
-
-
-
-
-
-
-	delete lieu;
-
-
-
-
-
-
-	/*
 		cout << "\t \tBienvenue sur PolyCount " << endl << " *****************************************************" << endl;
 
 		// Initialisation des depenses
@@ -144,7 +62,7 @@ int main() {
 		cout << *groupe;
 
 		// TODO: Terminez le programme correctement
-		*/
+		
 	system("pause");
 	return 0;
 }
